@@ -8,8 +8,6 @@ async def calc(x):
 async def asynchronous():
     futures = [calc(i) for i in range(10)]
     done, _ = await asyncio.wait(futures)
-    #for task in done:
-    #    print(task.result())
     for future in sorted(done,key=lambda x: x.result()):
         print(future.result())
 
